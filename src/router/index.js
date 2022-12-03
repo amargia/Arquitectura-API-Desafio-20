@@ -12,7 +12,7 @@ import auth from './authRouter.js';
 // Assign all routers to the app;
 router.use('/productos', product);
 router.use('/lista-productos', productList);
-router.use('/usuarios', user);
+router.use('/user', user);
 router.use('/info', info);
 router.use('/', home);
 router.use('/auth', auth);

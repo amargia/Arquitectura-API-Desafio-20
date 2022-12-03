@@ -4,7 +4,7 @@ import { usuariosDao } from "../contenedores/daos/index.js";
 import bcrypt from "bcrypt";
 
 passport.use(
-    new LocalStrategy({ usernameField: 'email' }, async (username, password, done) => {
+    new LocalStrategy(async (username, password, done) => {
         const userExists = await usuariosDao.findByEmail(username);
         if (!userExists) return done(null, false);
         bcrypt.compare(password, userExists.password, (err, isMatch) => {
@@ -12,9 +12,8 @@ passport.use(
           if (isMatch) return done(null, userExists);
           return done(null, false);
         });
-      })
-    
-    );
+    })
+);
 
 passport.serializeUser((user, done) => {
     done(null, user._id);

@@ -12,8 +12,7 @@ const renderProducts = () => {
                 <div class="card">
                     <img src="${element.thumbnail}" class="card-img-top" alt="imagen ${element.name}">
                     <div class="card-body">
-                        <h5 class="card-title
-                        ">${element.name}</h5>
+                        <h5 class="card-title">${element.name}</h5>
                         <p class="card-text">${element.price}</p>
                         <p class="card-text">${element.description}</p>
                     </div>
@@ -35,12 +34,12 @@ function renderMessages(data) {
         })
         .join(" ");
 
-    document.getElementById("messages").innerHTML = html;
+    document.getElementById("mensajes").innerHTML = html;
 }
 
 function addMessage(i) {
     const mensaje = {
-        email: document.getElementById("email").value,
+        email: document.getElementById("mail").value,
         mensaje: document.getElementById("mensaje").value,
         fecha: new Date().toLocaleString()
     };

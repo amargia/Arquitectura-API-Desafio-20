@@ -27,11 +27,25 @@ class UsuariosDaoMongoDB extends ContenedorMongoDB {
     async findByEmail(email) {
         try {
             const userExist = await User.findOne({email: email});
+            const todos = await User.find({});
+            console.log(todos);
+            console.log(userExist);
         if (userExist) {
             return userExist;
         } else {
             return false;
         }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async findById(id) {
+        try {
+            const userExist = await User.findById(id);
+            if (userExist) {
+                return userExist;
+            }
         } catch (error) {
             console.log(error);
         }

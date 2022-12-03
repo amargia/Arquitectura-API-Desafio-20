@@ -3,7 +3,7 @@ import { getUser } from '../services/users.js';
 const getHome = async (req, res) => {
     const user = await getUser(req.user._id);
 
-    const data = {
+    const userData = {
         _id: user._id,
         username: user.username,
         email: user.email,
@@ -13,7 +13,7 @@ const getHome = async (req, res) => {
         image: user.image
     }
 
-    res.render('home', { data });
+    res.render('home', { userData });
 }
 
 export { getHome };

@@ -16,14 +16,10 @@
         <% if (userData) { %>	
             <nav class="navbar">
                 <div class="container-fluid">
-                        <h1 class="text">Bienvenido <%= userData.name %></h1>						
+                        <h1 class="text">Bienvenido <%= userData.username %></h1>						
                         <p style="display:none" id="userId"><%= userData._id %></p>						
-                        <p style="display:none" id="cartId"><%= cart._id %></p>
                         <a href="/user">Datos de Usuario</a>							
-                    <img class="userImage" src="/userImages/<%= userData.avatar %>" alt="user image">		
-                    <a href="/api/carrito" id="cartContainer"><img class="carrito" src="/images/cart.png" alt="cart">
-                        <div id="counter"></div>
-                    </a>				
+                    <img class="userImage" src="/userImages/<%= userData.avatar %>" alt="user image">						
                 </div>
             </nav>
         <% } %>

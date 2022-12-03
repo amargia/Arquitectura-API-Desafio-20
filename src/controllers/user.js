@@ -1,8 +1,8 @@
 import { getUser } from "../services/users.js";
 
 const getUsuario = async (req, res) => {
-    const user = await getUser(req.user._id);
-    res.render('usuario', { user });
+    const userData = await getUser(req.user._id);
+    res.render('user', { userData });
 }
 
 export { getUsuario };
