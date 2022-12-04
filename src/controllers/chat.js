@@ -2,11 +2,15 @@ import { list, save } from '../services/chat.js';
 import '../connection/connection.js';
 
 const getChat = async () => {
-    return await list();
+    const mensajes = await list();
+    console.log(mensajes);
+    return mensajes;
 }
 
 const sendMessage = async (message) => {
-    return await save(message);
+    const newMessage = await save(message);
+    console.log(newMessage);
+    return newMessage;
 }
 
 export { getChat, sendMessage };

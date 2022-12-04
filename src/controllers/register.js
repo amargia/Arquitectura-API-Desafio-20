@@ -11,7 +11,7 @@ const postRegister = async (req, res) => {
     const image = file.filename;
 
     const { username, edad, direccion, email, telefono, password } = req.body
-    save({username, edad, direccion, email, telefono, password, image})
+    saveUser({username, edad, direccion, email, telefono, password, image})
 
     .then((user) => {
         if (!user) {

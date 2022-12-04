@@ -47,5 +47,5 @@ function addMessage(i) {
     return false;
 }
 
-socket.on("messages", function(data) { renderMessages(data)});
 socket.on("productos", function() { renderProducts() });
+socket.on("messages", function(data) { renderMessages(data)});

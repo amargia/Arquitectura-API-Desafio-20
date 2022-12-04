@@ -42,7 +42,7 @@ import router from "./src/router/index.js";
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.use(express.static(__dirname + 'public'));
+app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use("/", router);
@@ -57,16 +57,16 @@ import { getChat, sendMessage } from "./src/controllers/chat.js";
 
 console.log("hola");
 
-io.on('connection', (socket) => {
+io.on('connection', async (socket) => {
   console.log('User connected');
-  // const message = await getChat();
+  const message = await getChat();
   socket.emit('message', message);
   
   io.sockets.emit('productos');
 
-  // socket.on("connect_error", (err) => {
-  //   console.log(`connect_error due to ${err.message}`);
-  // });
+  socket.on("connect_error", (err) => {
+    console.log(`connect_error due to ${err.message}`);
+  });
 
   socket.on('new-message', async (msg) => {
     sendMessage(msg)
@@ -82,7 +82,7 @@ io.on('connection', (socket) => {
 
 const port = process.env.PORT || 8080
 
-const server = app.listen(port, () => {
+const server = httpServer.listen(port, () => {
   console.log(`Server up on port ${server.address().port}`);
 })
 
