@@ -16,16 +16,16 @@
             <img src="/userImages/<%= userData.image %>" alt="user image">
             <h3><%= userData.username %></h3>
             <p>Email: <%= userData.email %></p>
-            <p>Telefono: <%= userData.phone %></p>
-            <p>Direccion: <%= userData.address %></p>
-            <p>Edad: <%= userData.age %></p>
+            <p>Telefono: <%= userData.telefono %></p>
+            <p>Direccion: <%= userData.direccion %></p>
+            <p>Edad: <%= userData.edad %></p>
             <p>ID: <%= userData._id %></p>	
         </div>			
         <div class="container-fluid">
             <a href="/">Volver a Home</a>                                   
         </div>
         <div class="container-fluid">
-            <a href="/logout">Cerrar Sesión</a>
+            <a href="/auth/logout">Cerrar Sesión</a>
         </div>
     </main>
 </body>

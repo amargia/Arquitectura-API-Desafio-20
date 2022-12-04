@@ -47,21 +47,26 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use("/", router);
 
-import http from 'http';
-import { Server } from 'socket.io';
-const io = new Server(http);
+import { Server as HttpServer } from 'http';
+import { Server as IOServer } from 'socket.io';
 
-const httpServer = http.createServer(app);
-io.attach(httpServer);
+const httpServer = new HttpServer(app);
+const io = new IOServer(httpServer);
 
 import { getChat, sendMessage } from "./src/controllers/chat.js";
 
-io.on('connection', async (socket) => {
+console.log("hola");
+
+io.on('connection', (socket) => {
   console.log('User connected');
-  const message = await getChat();
+  // const message = await getChat();
   socket.emit('message', message);
   
   io.sockets.emit('productos');
+
+  // socket.on("connect_error", (err) => {
+  //   console.log(`connect_error due to ${err.message}`);
+  // });
 
   socket.on('new-message', async (msg) => {
     sendMessage(msg)

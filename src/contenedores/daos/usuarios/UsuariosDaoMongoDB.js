@@ -28,7 +28,6 @@ class UsuariosDaoMongoDB extends ContenedorMongoDB {
         try {
             const userExist = await User.findOne({email: email});
             const todos = await User.find({});
-            console.log(todos);
             console.log(userExist);
         if (userExist) {
             return userExist;

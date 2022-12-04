@@ -11,7 +11,7 @@ const getLogout = async (req, res) => {
         if (error) {
             logger.error(error);
         } else {
-            res.render('/logout', { name });
+            res.render('logout', { name });
         }
     });
 }
