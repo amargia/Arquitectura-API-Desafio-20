@@ -55,8 +55,6 @@ const io = new IOServer(httpServer);
 
 import { getChat, sendMessage } from "./src/controllers/chat.js";
 
-console.log("hola");
-
 io.on('connection', async (socket) => {
   console.log('User connected');
   const message = await getChat();
